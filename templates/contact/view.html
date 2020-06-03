@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+
+
+{%block content%}
+
+<body>
+  <div class="text-center">
+      <h1>{{title}}</h1>
+
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="col-md-6 col-12 mx-auto">
+          <form class="contact-form" method="post" action='{% url "contact" %}'> {% csrf_token %}
+            {{form}}
+            <button type="submit" name="button" class="btn btn-primary">Gửi</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{%endblock%}

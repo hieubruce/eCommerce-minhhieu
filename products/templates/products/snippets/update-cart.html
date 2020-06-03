@@ -1,0 +1,10 @@
+<form class='form-product-ajax' method='POST' action='{% url "cart:update" %}' data-endpoint='{% url "cart:update" %}' class="form"> {% csrf_token %}
+    <input type='hidden' name='product_id' value='{{ product.id }}' {% if  product.is_digital %}data-is-digital='true'{% endif%}/>
+      <span class='submit-span'>
+    {% if product in cart.products.all %}
+        <div class='btn-group'> <a class='btn btn-link' href='/cart/'>Vào giỏ hàng</a> <button type='submit' class='btn btn-link'>xóa?</button></div>
+    {% else %}
+        <button type='submit'  class='btn btn-success'>Thêm vào giỏ hàng</button>
+    {% endif %}
+    </span>
+</form>
